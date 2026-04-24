@@ -14,7 +14,7 @@ const applyTheme = (theme) => {
   }
 };
 
-const initialTheme = savedTheme || (prefersLight.matches ? "light" : "dark");
+const initialTheme = savedTheme || "light";
 applyTheme(initialTheme);
 
 if (themeToggle) {
@@ -22,14 +22,6 @@ if (themeToggle) {
     const nextTheme = document.body.classList.contains("light-mode") ? "dark" : "light";
     localStorage.setItem("portfolio-theme", nextTheme);
     applyTheme(nextTheme);
-  });
-}
-
-if (typeof prefersLight.addEventListener === "function") {
-  prefersLight.addEventListener("change", (event) => {
-    if (!localStorage.getItem("portfolio-theme")) {
-      applyTheme(event.matches ? "light" : "dark");
-    }
   });
 }
 
