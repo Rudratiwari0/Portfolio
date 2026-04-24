@@ -1,5 +1,5 @@
 const themeToggle = document.getElementById("themeToggle");
-const storedTheme = localStorage.getItem("portfolio-theme");
+const savedTheme = localStorage.getItem("portfolio-theme");
 const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
 
 const applyTheme = (theme) => {
@@ -14,15 +14,8 @@ const applyTheme = (theme) => {
   }
 };
 
-const resolveInitialTheme = () => {
-  if (storedTheme === "light" || storedTheme === "dark") {
-    return storedTheme;
-  }
-
-  return prefersLight.matches ? "light" : "dark";
-};
-
-applyTheme(resolveInitialTheme());
+const initialTheme = savedTheme || (prefersLight.matches ? "light" : "dark");
+applyTheme(initialTheme);
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
@@ -43,9 +36,11 @@ if (typeof prefersLight.addEventListener === "function") {
 const navbar = document.getElementById("navbar");
 
 const updateNavbarState = () => {
-  if (navbar) {
-    navbar.classList.toggle("scrolled", window.scrollY > 24);
+  if (!navbar) {
+    return;
   }
+
+  navbar.classList.toggle("scrolled", window.scrollY > 24);
 };
 
 updateNavbarState();
@@ -73,7 +68,9 @@ if (hamburger && mobileMenu) {
 }
 
 document.querySelectorAll(".mobile-link").forEach((link) => {
-  link.addEventListener("click", () => setMenuState(false));
+  link.addEventListener("click", () => {
+    setMenuState(false);
+  });
 });
 
 window.addEventListener("resize", () => {
@@ -94,7 +91,7 @@ const revealObserver = new IntersectionObserver(
 
       siblings.forEach((element, index) => {
         if (element === entry.target) {
-          delay = index * 75;
+          delay = index * 85;
         }
       });
 
@@ -108,49 +105,102 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
 );
 
-document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+document.querySelectorAll(".reveal").forEach((element) => {
+  revealObserver.observe(element);
+});
 
-const downloadForm = document.getElementById("downloadForm");
-const videoLinkInput = document.getElementById("videoLink");
-const downloadButton = document.getElementById("downloadButton");
-const downloadStatus = document.getElementById("downloadStatus");
+const skillObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
 
-if (downloadForm && videoLinkInput && downloadButton && downloadStatus) {
-  const setDownloadMessage = (message, type = "") => {
-    downloadStatus.textContent = message;
-    downloadStatus.className = `download-status${type ? ` ${type}` : ""}`;
+      entry.target.querySelectorAll(".skill-fill").forEach((bar) => {
+        const width = bar.getAttribute("data-w");
+        bar.style.width = `${width}%`;
+      });
+
+      skillObserver.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.3 }
+);
+
+const skillsGrid = document.querySelector(".skills-grid");
+if (skillsGrid) {
+  skillObserver.observe(skillsGrid);
+}
+
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+if (contactForm) {
+  const requiredFields = [...contactForm.querySelectorAll("input[required], textarea[required]")];
+  const emailField = document.getElementById("email");
+  const contactEmail = "rptiwari1130@gmail.com";
+
+  const markFieldState = (field) => {
+    const isEmpty = !field.value.trim();
+    const isEmail = field.type === "email";
+    const hasInvalidEmail = isEmail && field.value.trim() && !field.checkValidity();
+    field.classList.toggle("invalid", isEmpty || hasInvalidEmail);
+    return !(isEmpty || hasInvalidEmail);
   };
 
-  videoLinkInput.addEventListener("input", () => {
-    videoLinkInput.classList.remove("invalid");
-
-    if (downloadStatus.classList.contains("error")) {
-      setDownloadMessage("");
-    }
+  requiredFields.forEach((field) => {
+    field.addEventListener("input", () => {
+      markFieldState(field);
+    });
   });
 
-  downloadForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const linkValue = videoLinkInput.value.trim();
+    const allValid = requiredFields.every((field) => markFieldState(field));
 
-    if (!linkValue) {
-      videoLinkInput.classList.add("invalid");
-      setDownloadMessage("Please paste a video link before continuing.", "error");
-      videoLinkInput.focus();
+    if (!allValid) {
+      const firstInvalid = requiredFields.find((field) => field.classList.contains("invalid")) || emailField;
+      formStatus.textContent = "Please complete the required fields with valid details before sending.";
+      formStatus.className = "form-status error";
+      firstInvalid.focus();
       return;
     }
 
-    downloadButton.disabled = true;
-    downloadButton.textContent = "Fetching video…";
-    setDownloadMessage("Fetching video…", "success");
+    const formData = new FormData(contactForm);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const subjectValue = String(formData.get("subject") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const subject = encodeURIComponent(subjectValue || `Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        "",
+        "Message:",
+        message
+      ].join("\n")
+    );
 
-    // Preserve deployability on static hosting. Replace this timeout with your real API call when ready.
-    window.setTimeout(() => {
-      downloadButton.disabled = false;
-      downloadButton.textContent = "Fetch Video";
-      setDownloadMessage("Video details are ready. Connect your processing endpoint here to continue the download flow.", "success");
-    }, 1600);
+    const button = contactForm.querySelector('button[type="submit"]');
+    button.textContent = "Opening Mail App...";
+    button.style.background = "#159f73";
+    button.disabled = true;
+    formStatus.textContent = "Your message is ready. Sending will open in your email app.";
+    formStatus.className = "form-status success";
+
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
+      button.textContent = "Send Message";
+      button.style.background = "";
+      button.disabled = false;
+      contactForm.reset();
+      requiredFields.forEach((field) => field.classList.remove("invalid"));
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+    }, 3000);
   });
 }
 
@@ -178,7 +228,7 @@ const activeObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.45, rootMargin: "-10% 0px -48% 0px" }
+  { threshold: 0.48, rootMargin: "-10% 0px -45% 0px" }
 );
 
 sections.forEach((section) => activeObserver.observe(section));

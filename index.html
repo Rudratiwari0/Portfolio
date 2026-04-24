@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuickFetch Video Downloader | Fast, Free & Simple</title>
   <meta
     name="description"
-    content="Download videos fast, free, and simple. Paste your link, choose quality, and download instantly with a clean mobile-friendly experience."
+    content="Rudra Tiwari is a trader and frontend developer building responsive websites and sharing data-driven market insight."
   />
+  <title>Rudra Tiwari - Trader & Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,13 +21,13 @@
 
   <nav id="navbar" aria-label="Primary">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">QF<span class="dot">.</span></a>
+      <a href="#hero" class="nav-logo">RT<span class="dot">.</span></a>
       <ul class="nav-links">
-        <li><a href="#about" data-section-link>How It Works</a></li>
-        <li><a href="#skills" data-section-link>Features</a></li>
-        <li><a href="#services" data-section-link>Trust</a></li>
-        <li><a href="#projects" data-section-link>Formats</a></li>
-        <li><a href="#contact" data-section-link>Support</a></li>
+        <li><a href="#about" data-section-link>About</a></li>
+        <li><a href="#skills" data-section-link>Skills</a></li>
+        <li><a href="#services" data-section-link>Services</a></li>
+        <li><a href="#projects" data-section-link>Projects</a></li>
+        <li><a href="#contact" data-section-link>Contact</a></li>
       </ul>
       <button
         class="theme-toggle"
@@ -41,7 +41,7 @@
           <span class="theme-toggle-thumb"></span>
         </span>
       </button>
-      <a href="#hero" class="btn-nav">Start Download</a>
+      <a href="#contact" class="btn-nav">Hire Me</a>
       <button
         class="hamburger"
         id="hamburger"
@@ -54,11 +54,11 @@
       </button>
     </div>
     <div class="mobile-menu" id="mobileMenu" hidden>
-      <a href="#about" class="mobile-link">How It Works</a>
-      <a href="#skills" class="mobile-link">Features</a>
-      <a href="#services" class="mobile-link">Trust</a>
-      <a href="#projects" class="mobile-link">Formats</a>
-      <a href="#contact" class="mobile-link">Support</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
     </div>
   </nav>
 
@@ -66,53 +66,34 @@
     <section id="hero">
       <div class="hero-bg-grid"></div>
       <div class="hero-glow"></div>
-
       <div class="hero-content">
-        <div class="hero-badge reveal">Fast Video Downloader</div>
-        <h1 class="hero-title reveal">Download Videos Fast, Free &amp; Simple</h1>
+        <div class="hero-badge reveal">Trader &amp; Developer</div>
+        <h1 class="hero-title reveal">
+          Hello, I'm<br />
+          <span class="highlight">Rudra Tiwari</span>
+        </h1>
         <p class="hero-sub reveal">
-          Paste your link, choose quality, and download instantly.
+          Professional trader &amp; frontend developer - turning data into decisions and ideas into interfaces.
         </p>
-
-        <form class="download-panel reveal" id="downloadForm" novalidate>
-          <label class="sr-only" for="videoLink">Video link</label>
-          <input
-            id="videoLink"
-            name="videoLink"
-            type="url"
-            placeholder="Paste your video link here"
-            autocomplete="off"
-            inputmode="url"
-            required
-          />
-          <label class="sr-only" for="qualitySelect">Choose quality</label>
-          <select id="qualitySelect" name="quality">
-            <option value="1080p">1080p</option>
-            <option value="720p" selected>720p</option>
-            <option value="480p">480p</option>
-            <option value="audio">Audio only</option>
-          </select>
-          <button type="submit" class="btn-primary" id="downloadButton">Fetch Video</button>
-        </form>
-
-        <p class="download-status reveal" id="downloadStatus" aria-live="polite"></p>
-        <p class="hero-trust reveal">No login • No ads • Fast processing</p>
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
       </div>
-
       <div class="hero-visual reveal" aria-hidden="true">
         <div class="hero-card-float">
           <div class="float-chip">
-            <span class="chip-dot green"></span> Ready to Process
+            <span class="chip-dot green"></span> Markets Open
           </div>
           <div class="float-ticker">
-            <span><strong>Step 1</strong><em class="up">Paste URL</em></span>
-            <span><strong>Step 2</strong><em class="up">Choose Quality</em></span>
-            <span><strong>Step 3</strong><em class="up">Download</em></span>
+            <span>NIFTY <em class="up">+1.2%</em></span>
+            <span>SENSEX <em class="up">+0.8%</em></span>
+            <span>BANKNIFTY <em class="down">-0.3%</em></span>
           </div>
           <div class="float-code">
-            <span class="code-line"><em class="kw">const</em> link = <em class="str">"video-url"</em>;</span>
-            <span class="code-line"><em class="kw">const</em> quality = <em class="str">"720p"</em>;</span>
-            <span class="code-line"><em class="fn">fetchVideo</em>(link, quality);</span>
+            <span class="code-line"><em class="kw">const</em> portfolio = <em class="str">"Rudra"</em>;</span>
+            <span class="code-line"><em class="kw">let</em> skills = [<em class="str">"React"</em>, <em class="str">"Trading"</em>];</span>
+            <span class="code-line"><em class="fn">build</em>(portfolio);</span>
           </div>
         </div>
       </div>
@@ -120,144 +101,177 @@
 
     <section id="about">
       <div class="container">
-        <div class="section-label reveal">How It Works</div>
-        <h2 class="section-title centered reveal">Three steps from link to download</h2>
-        <p class="section-sub reveal">
-          Designed to feel instant, simple, and clear on every device.
-        </p>
-        <div class="about-grid steps-grid">
-          <article class="step-card reveal">
-            <span class="step-number">01</span>
-            <h3>Paste Link</h3>
-            <p>Drop in the video URL from the platform you want to use. No account setup or extra steps.</p>
-          </article>
-          <article class="step-card reveal">
-            <span class="step-number">02</span>
-            <h3>Choose Quality</h3>
-            <p>Select the quality or format that fits your device, speed, and storage preferences.</p>
-          </article>
-          <article class="step-card reveal">
-            <span class="step-number">03</span>
-            <h3>Download Instantly</h3>
-            <p>Start the fetch flow and move straight into your download without clutter or friction.</p>
-          </article>
+        <div class="section-label reveal">Who I Am</div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h2 class="section-title">Building websites &amp; navigating trading with clarity.</h2>
+            <p class="about-body">
+              I'm a professional trader and frontend developer with a passion for helping individuals. I design and develop responsive websites, and actively trade using data-driven insights to make informed decisions.
+            </p>
+            <div class="about-tags">
+              <span class="tag">HTML &amp; CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Trading</span>
+              <span class="tag">LIC Advisor</span>
+            </div>
+          </div>
+          <div class="about-cards reveal">
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#127891;</div>
+              <div>
+                <div class="info-title">Education</div>
+                <div class="info-desc">Bachelor of Commerce</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#128187;</div>
+              <div>
+                <div class="info-title">Frameworks</div>
+                <div class="info-desc">React, Bootstrap</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#128200;</div>
+              <div>
+                <div class="info-title">Speciality</div>
+                <div class="info-desc">Market Analysis &amp; Web Dev</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#127760;</div>
+              <div>
+                <div class="info-title">Languages</div>
+                <div class="info-desc">HTML, CSS, JavaScript</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="skills">
       <div class="container">
-        <div class="section-label reveal">Features</div>
-        <h2 class="section-title centered reveal">Built for speed and simplicity</h2>
-        <p class="section-sub reveal">
-          A modern card-based layout that keeps the downloader focused and easy to trust.
-        </p>
-        <div class="skills-grid feature-grid">
-          <article class="feature-card reveal">
-            <h3>Fast downloads</h3>
-            <p>Minimal steps, quick action flow, and lightweight UI for a faster experience.</p>
-          </article>
-          <article class="feature-card reveal">
-            <h3>Mobile friendly</h3>
-            <p>Optimized inputs, stacked controls, and readable spacing across phones and tablets.</p>
-          </article>
-          <article class="feature-card reveal">
-            <h3>Clean UI</h3>
-            <p>Rounded cards, soft shadows, balanced spacing, and strong hierarchy throughout.</p>
-          </article>
-          <article class="feature-card reveal">
-            <h3>Multiple formats</h3>
-            <p>Prepare users to choose the format or quality that works best for their needs.</p>
-          </article>
-          <article class="feature-card reveal">
-            <h3>Free to use</h3>
-            <p>A friction-free landing page experience with no signup barrier and no bloated flow.</p>
-          </article>
+        <div class="section-label reveal">Expertise</div>
+        <h2 class="section-title centered reveal">Technical Skills</h2>
+        <div class="skills-grid reveal">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>HTML5</span><span class="skill-pct">95%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>CSS3</span><span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>JavaScript</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>React</span><span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>Bootstrap</span><span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>Trading</span><span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <div class="section-label reveal">Trust</div>
-        <h2 class="section-title centered reveal">Clear, safe, and easy to use</h2>
-        <p class="section-sub reveal">
-          The experience is built to feel trustworthy before the user even clicks the button.
-        </p>
-        <div class="services-grid trust-grid">
-          <article class="service-card reveal">
-            <div class="service-icon" aria-hidden="true">✓</div>
-            <h3>No login required</h3>
-            <p>Users can get started immediately without creating an account or sharing extra details.</p>
-          </article>
-          <article class="service-card reveal">
-            <div class="service-icon" aria-hidden="true">✓</div>
-            <h3>No ads</h3>
-            <p>A cleaner UI reduces distraction and helps the page feel faster and more professional.</p>
-          </article>
-          <article class="service-card reveal">
-            <div class="service-icon" aria-hidden="true">✓</div>
-            <h3>Safe to use</h3>
-            <p>Simple flows, clear status feedback, and a transparent interface improve confidence.</p>
-          </article>
-          <article class="service-card reveal">
-            <div class="service-icon" aria-hidden="true">✓</div>
-            <h3>Works on all devices</h3>
-            <p>Responsive layouts and full-width controls make the downloader feel native everywhere.</p>
-          </article>
+        <div class="section-label reveal">What I Offer</div>
+        <h2 class="section-title centered reveal">My Services</h2>
+        <p class="section-sub reveal">Explore a collection of services showcasing my expertise across different fields.</p>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&#128202;</div>
+            <h3>Trading</h3>
+            <p>In-depth knowledge of trading strategies and portfolio management to help you navigate financial markets confidently.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&#9889;</div>
+            <h3>Frontend Development</h3>
+            <p>Building responsive and dynamic websites with cutting-edge frontend technologies including React, HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&#128737;&#65039;</div>
+            <h3>Life Insurance Advice</h3>
+            <p>Expert advice on choosing the right LIC life insurance plan to protect you and your family's financial future.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="container">
-        <div class="section-label reveal">Formats</div>
-        <h2 class="section-title centered reveal">Choose the output that fits</h2>
-        <p class="section-sub reveal">
-          Flexible download options make the experience useful across different connection speeds and devices.
-        </p>
-        <div class="projects-grid format-grid">
-          <article class="project-card reveal">
+        <div class="section-label reveal">Work</div>
+        <h2 class="section-title centered reveal">My Portfolio</h2>
+        <p class="section-sub reveal">Explore a collection of projects I have worked on.</p>
+        <div class="projects-grid">
+          <div class="project-card reveal" data-category="landing">
             <div class="project-img">
               <div class="project-placeholder landing">
-                <span aria-hidden="true">HD</span>
-                <p>Video Quality</p>
+                <span aria-hidden="true">&#128200;</span>
+                <p>Course Landing Page</p>
+              </div>
+              <div class="project-overlay">
+                <a href="https://octopus-app-ziiu6.ondigitalocean.app/" class="btn-project" target="_blank" rel="noopener noreferrer">Open Project</a>
               </div>
             </div>
             <div class="project-info">
-              <span class="project-tag">HD</span>
-              <h4>High-quality downloads</h4>
-              <p>Offer users a cleaner path to 1080p, 720p, or lower-resolution video options.</p>
+              <span class="project-tag">Landing</span>
+              <h4>Stock Market Course Landing</h4>
+              <p>A premium sales page for a beginner-friendly stock market course with pricing, curriculum, and CTA-driven sections.</p>
             </div>
-          </article>
-          <article class="project-card reveal">
+          </div>
+          <div class="project-card reveal" data-category="coming">
             <div class="project-img">
-              <div class="project-placeholder guide">
-                <span aria-hidden="true">MP3</span>
-                <p>Audio Format</p>
+              <div class="project-placeholder course">
+                <span aria-hidden="true">&#10024;</span>
+                <p>Another Project Coming</p>
+              </div>
+              <div class="project-overlay">
+                <a href="#contact" class="btn-project">Coming Soon</a>
               </div>
             </div>
             <div class="project-info">
-              <span class="project-tag">Audio</span>
-              <h4>Audio-only option</h4>
-              <p>Let users grab just the sound when they want a lighter file or music-style format.</p>
+              <span class="project-tag">Coming</span>
+              <h4>Another Project Coming</h4>
+              <p>A new project card is reserved here and will be updated soon with the next live build.</p>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contact">
       <div class="container">
-        <div class="section-label reveal">Support</div>
-        <h2 class="section-title centered reveal">Need help or want to integrate an API?</h2>
-        <p class="section-sub reveal">
-          Keep the product feel clean while still giving users and collaborators a clear support path.
-        </p>
-        <div class="contact-wrapper reveal support-card">
+        <div class="section-label reveal">Let's Talk</div>
+        <h2 class="section-title centered reveal">Have a Project?</h2>
+        <p class="section-sub reveal">Whether it's a website, trading consultation, or insurance advice - let's connect.</p>
+        <div class="contact-wrapper reveal">
           <div class="contact-top">
             <div class="contact-direct">
-              <span class="contact-kicker">Support Email</span>
+              <span class="contact-kicker">Direct Email</span>
               <a href="mailto:rptiwari1130@gmail.com" class="contact-email">rptiwari1130@gmail.com</a>
             </div>
             <div class="social-links" aria-label="Social links">
@@ -292,16 +306,28 @@
               </a>
             </div>
           </div>
-          <div class="support-grid">
-            <article class="support-item">
-              <h3>Privacy note</h3>
-              <p>No login is required for the UI flow, and the experience is designed to stay minimal and focused.</p>
-            </article>
-            <article class="support-item">
-              <h3>Deployment ready</h3>
-              <p>The landing page remains static-host friendly, with clean frontend-only state handling for DigitalOcean.</p>
-            </article>
-          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="What's this about?" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary full">Send Message</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>
@@ -309,13 +335,13 @@
 
   <footer>
     <div class="footer-inner">
-      <div>
-        <span class="nav-logo">QF<span class="dot">.</span></span>
-        <p class="footer-note">Privacy-first downloader landing page for a clean, trusted user experience.</p>
-      </div>
-      <div class="footer-meta">
-        <p>QuickFetch Video Downloader</p>
-        <p>&copy; <span id="currentYear">2026</span> All rights reserved.</p>
+      <span class="nav-logo">RT<span class="dot">.</span></span>
+      <p>&copy; <span id="currentYear">2024</span> Rudra Tiwari. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
