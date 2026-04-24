@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Rudra Tiwari is a trader and frontend developer building responsive websites and sharing data-driven market insight."
+  />
+  <title>Rudra Tiwari - Trader & Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <nav id="navbar" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">RT<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about" data-section-link>About</a></li>
+        <li><a href="#skills" data-section-link>Skills</a></li>
+        <li><a href="#services" data-section-link>Services</a></li>
+        <li><a href="#projects" data-section-link>Projects</a></li>
+        <li><a href="#contact" data-section-link>Contact</a></li>
+      </ul>
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch to light mode"
+        aria-pressed="false"
+        title="Toggle theme"
+      >
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+      <a href="#contact" class="btn-nav">Hire Me</a>
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <main id="mainContent">
+    <section id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-content">
+        <div class="hero-badge reveal">Trader &amp; Developer</div>
+        <h1 class="hero-title reveal">
+          Hello, I'm<br />
+          <span class="highlight">Rudra Tiwari</span>
+        </h1>
+        <p class="hero-sub reveal">
+          Professional stock market trader &amp; frontend developer - turning data into decisions and ideas into interfaces.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn-primary">View Portfolio</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hero-card-float">
+          <div class="float-chip">
+            <span class="chip-dot green"></span> Markets Open
+          </div>
+          <div class="float-ticker">
+            <span>NIFTY <em class="up">+1.2%</em></span>
+            <span>SENSEX <em class="up">+0.8%</em></span>
+            <span>BANKNIFTY <em class="down">-0.3%</em></span>
+          </div>
+          <div class="float-code">
+            <span class="code-line"><em class="kw">const</em> portfolio = <em class="str">"Rudra"</em>;</span>
+            <span class="code-line"><em class="kw">let</em> skills = [<em class="str">"React"</em>, <em class="str">"Trading"</em>];</span>
+            <span class="code-line"><em class="fn">build</em>(portfolio);</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label reveal">Who I Am</div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h2 class="section-title">Building websites &amp; navigating the stock market.</h2>
+            <p class="about-body">
+              I'm a professional stock market trader and frontend developer with a passion for helping individuals and businesses achieve financial success. I design and develop responsive websites, and actively trade in the stock market using data-driven insights to make informed decisions.
+            </p>
+            <div class="about-tags">
+              <span class="tag">HTML &amp; CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Bootstrap</span>
+              <span class="tag">Stock Trading</span>
+              <span class="tag">LIC Advisor</span>
+            </div>
+          </div>
+          <div class="about-cards reveal">
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#127891;</div>
+              <div>
+                <div class="info-title">Education</div>
+                <div class="info-desc">Bachelor of Commerce</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#128187;</div>
+              <div>
+                <div class="info-title">Frameworks</div>
+                <div class="info-desc">React, Bootstrap</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#128200;</div>
+              <div>
+                <div class="info-title">Speciality</div>
+                <div class="info-desc">Market Analysis &amp; Web Dev</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon" aria-hidden="true">&#127760;</div>
+              <div>
+                <div class="info-title">Languages</div>
+                <div class="info-desc">HTML, CSS, JavaScript</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-label reveal">Expertise</div>
+        <h2 class="section-title centered reveal">Technical Skills</h2>
+        <div class="skills-grid reveal">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>HTML5</span><span class="skill-pct">95%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>CSS3</span><span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>JavaScript</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>React</span><span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>Bootstrap</span><span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span>Stock Trading</span><span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-label reveal">What I Offer</div>
+        <h2 class="section-title centered reveal">My Services</h2>
+        <p class="section-sub reveal">Explore a collection of services showcasing my expertise across different fields.</p>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&#128202;</div>
+            <h3>Stock Market Trading</h3>
+            <p>In-depth knowledge of stock markets, trading strategies, and portfolio management to help you navigate financial markets confidently.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&#9889;</div>
+            <h3>Frontend Development</h3>
+            <p>Building responsive and dynamic websites with cutting-edge frontend technologies including React, HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">&#128737;&#65039;</div>
+            <h3>Life Insurance Advice</h3>
+            <p>Expert advice on choosing the right LIC life insurance plan to protect you and your family's financial future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-label reveal">Work</div>
+        <h2 class="section-title centered reveal">My Portfolio</h2>
+        <p class="section-sub reveal">Explore a collection of projects I have worked on.</p>
+        <div class="filter-bar reveal">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="landing" type="button">Landing</button>
+          <button class="filter-btn" data-filter="success" type="button">Success</button>
+          <button class="filter-btn" data-filter="guide" type="button">Guide</button>
+          <button class="filter-btn" data-filter="course" type="button">Course</button>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card reveal" data-category="landing">
+            <div class="project-img">
+              <div class="project-placeholder landing">
+                <span aria-hidden="true">&#128200;</span>
+                <p>Course Landing Page</p>
+              </div>
+              <div class="project-overlay">
+                <a href="../html/index.html" class="btn-project" target="_blank" rel="noopener noreferrer">Open Project</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag">Landing</span>
+              <h4>Stock Market Course Landing</h4>
+              <p>A premium sales page for a beginner-friendly stock market course with pricing, curriculum, and CTA-driven sections.</p>
+            </div>
+          </div>
+          <div class="project-card reveal" data-category="success">
+            <div class="project-img">
+              <div class="project-placeholder success">
+                <span aria-hidden="true">&#9989;</span>
+                <p>Payment Success Page</p>
+              </div>
+              <div class="project-overlay">
+                <a href="../html/secret.html" class="btn-project" target="_blank" rel="noopener noreferrer">Open Project</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag">Success</span>
+              <h4>Course Access Confirmation</h4>
+              <p>A polished post-payment confirmation screen designed to reassure buyers and guide them directly into the course.</p>
+            </div>
+          </div>
+          <div class="project-card reveal" data-category="guide">
+            <div class="project-img">
+              <div class="project-placeholder guide">
+                <span aria-hidden="true">&#128214;</span>
+                <p>Guide Preview</p>
+              </div>
+              <div class="project-overlay">
+                <a href="../html/index-guide.html" class="btn-project" target="_blank" rel="noopener noreferrer">Open Project</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag">Guide</span>
+              <h4>Interactive Course Preview</h4>
+              <p>A long-form educational guide layout with sidebar navigation, structured chapters, and a richer reading experience.</p>
+            </div>
+          </div>
+          <div class="project-card reveal" data-category="course">
+            <div class="project-img">
+              <div class="project-placeholder course">
+                <span aria-hidden="true">&#128274;</span>
+                <p>Protected Full Course</p>
+              </div>
+              <div class="project-overlay">
+                <a href="../html/course-8347x.html" class="btn-project" target="_blank" rel="noopener noreferrer">Open Project</a>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-tag">Course</span>
+              <h4>Protected Full Course Portal</h4>
+              <p>A gated course experience with access control, chapter navigation, search, and full premium content delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-label reveal">Let's Talk</div>
+        <h2 class="section-title centered reveal">Have a Project?</h2>
+        <p class="section-sub reveal">Whether it's a website, trading consultation, or insurance advice - let's connect.</p>
+        <div class="contact-wrapper reveal">
+          <div class="contact-top">
+            <div class="contact-direct">
+              <span class="contact-kicker">Direct Email</span>
+              <a href="mailto:rtiwari1130@gmail.com" class="contact-email">rtiwari1130@gmail.com</a>
+            </div>
+            <div class="social-links" aria-label="Social links">
+              <a href="#" class="social-link" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="17.5" cy="6.5" r="1"></circle>
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6.75 8.25a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3Z"></path>
+                  <path d="M5.5 10h2.5v8.5H5.5z"></path>
+                  <path d="M10 10h2.4v1.2h.03c.34-.64 1.18-1.45 2.42-1.45 2.59 0 3.06 1.7 3.06 3.91v4.82h-2.5v-4.27c0-1.02-.02-2.33-1.42-2.33-1.42 0-1.64 1.11-1.64 2.26v4.34H10z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="GitHub" title="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.75a9.25 9.25 0 0 0-2.93 18.03c.46.08.63-.2.63-.45v-1.58c-2.56.56-3.1-1.08-3.1-1.08-.42-1.06-1.02-1.34-1.02-1.34-.84-.57.06-.56.06-.56.93.07 1.42.95 1.42.95.82 1.4 2.16 1 2.68.77.08-.6.32-1 .58-1.22-2.05-.24-4.21-1.02-4.21-4.56 0-1.01.36-1.84.95-2.49-.1-.23-.41-1.17.09-2.43 0 0 .78-.25 2.56.95a8.9 8.9 0 0 1 4.66 0c1.78-1.2 2.56-.95 2.56-.95.5 1.26.19 2.2.09 2.43.59.65.95 1.48.95 2.49 0 3.55-2.16 4.31-4.22 4.55.33.29.62.85.62 1.72v2.54c0 .25.17.54.64.45A9.25 9.25 0 0 0 12 2.75Z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-link" aria-label="X" title="X">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4.5h3.7l4.03 5.37L16.44 4.5H20l-6.52 7.42L20.34 20h-3.7l-4.38-5.84L7.1 20H3.54l6.91-7.86z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="What's this about?" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary full">Send Message</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="nav-logo">RT<span class="dot">.</span></span>
+      <p>&copy; <span id="currentYear">2024</span> Rudra Tiwari. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
