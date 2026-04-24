@@ -168,7 +168,7 @@ const formStatus = document.getElementById("formStatus");
 if (contactForm) {
   const requiredFields = [...contactForm.querySelectorAll("input[required], textarea[required]")];
   const emailField = document.getElementById("email");
-  const contactEmail = "rtiwari1130@gmail.com";
+  const contactEmail = "rptiwari1130@gmail.com";
 
   const markFieldState = (field) => {
     const isEmpty = !field.value.trim();

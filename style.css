@@ -1393,6 +1393,7 @@ body.light-mode .project-overlay {
 
 .social-link[aria-label="LinkedIn"] svg,
 .social-link[aria-label="GitHub"] svg,
+.social-link[aria-label="Facebook"] svg,
 .social-link[aria-label="X"] svg {
   fill: currentColor;
   stroke: none;
