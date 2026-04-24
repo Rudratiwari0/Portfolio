@@ -1,8 +1,7 @@
-/* ===========================
-   THEME TOGGLE
-=========================== */
 const themeToggle = document.getElementById("themeToggle");
-const savedTheme = localStorage.getItem("portfolio-theme");
+const storedTheme = localStorage.getItem("portfolio-theme");
+const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+
 const applyTheme = (theme) => {
   const isLight = theme === "light";
 
@@ -15,8 +14,15 @@ const applyTheme = (theme) => {
   }
 };
 
-const initialTheme = savedTheme || "dark";
-applyTheme(initialTheme);
+const resolveInitialTheme = () => {
+  if (storedTheme === "light" || storedTheme === "dark") {
+    return storedTheme;
+  }
+
+  return prefersLight.matches ? "light" : "dark";
+};
+
+applyTheme(resolveInitialTheme());
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
@@ -26,25 +32,25 @@ if (themeToggle) {
   });
 }
 
-/* ===========================
-   NAVBAR SCROLL STATE
-=========================== */
+if (typeof prefersLight.addEventListener === "function") {
+  prefersLight.addEventListener("change", (event) => {
+    if (!localStorage.getItem("portfolio-theme")) {
+      applyTheme(event.matches ? "light" : "dark");
+    }
+  });
+}
+
 const navbar = document.getElementById("navbar");
 
 const updateNavbarState = () => {
-  if (!navbar) {
-    return;
+  if (navbar) {
+    navbar.classList.toggle("scrolled", window.scrollY > 24);
   }
-
-  navbar.classList.toggle("scrolled", window.scrollY > 24);
 };
 
 updateNavbarState();
 window.addEventListener("scroll", updateNavbarState, { passive: true });
 
-/* ===========================
-   HAMBURGER MENU
-=========================== */
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
 
@@ -67,9 +73,7 @@ if (hamburger && mobileMenu) {
 }
 
 document.querySelectorAll(".mobile-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    setMenuState(false);
-  });
+  link.addEventListener("click", () => setMenuState(false));
 });
 
 window.addEventListener("resize", () => {
@@ -78,9 +82,6 @@ window.addEventListener("resize", () => {
   }
 });
 
-/* ===========================
-   REVEAL ON SCROLL
-=========================== */
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -93,7 +94,7 @@ const revealObserver = new IntersectionObserver(
 
       siblings.forEach((element, index) => {
         if (element === entry.target) {
-          delay = index * 85;
+          delay = index * 75;
         }
       });
 
@@ -107,136 +108,52 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
 );
 
-document.querySelectorAll(".reveal").forEach((element) => {
-  revealObserver.observe(element);
-});
+document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
 
-/* ===========================
-   SKILL BAR ANIMATION
-=========================== */
-const skillObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
+const downloadForm = document.getElementById("downloadForm");
+const videoLinkInput = document.getElementById("videoLink");
+const downloadButton = document.getElementById("downloadButton");
+const downloadStatus = document.getElementById("downloadStatus");
 
-      entry.target.querySelectorAll(".skill-fill").forEach((bar) => {
-        const width = bar.getAttribute("data-w");
-        bar.style.width = `${width}%`;
-      });
-
-      skillObserver.unobserve(entry.target);
-    });
-  },
-  { threshold: 0.3 }
-);
-
-const skillsGrid = document.querySelector(".skills-grid");
-if (skillsGrid) {
-  skillObserver.observe(skillsGrid);
-}
-
-/* ===========================
-   PROJECT FILTER
-=========================== */
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".project-card");
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach((item) => item.classList.remove("active"));
-    button.classList.add("active");
-
-    const filter = button.getAttribute("data-filter");
-
-    projectCards.forEach((card) => {
-      const category = card.getAttribute("data-category");
-      const isVisible = filter === "all" || category === filter;
-
-      card.classList.toggle("hidden", !isVisible);
-    });
-  });
-});
-
-/* ===========================
-   CONTACT FORM
-=========================== */
-const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("formStatus");
-
-if (contactForm) {
-  const requiredFields = [...contactForm.querySelectorAll("input[required], textarea[required]")];
-  const emailField = document.getElementById("email");
-  const contactEmail = "rptiwari1130@gmail.com";
-
-  const markFieldState = (field) => {
-    const isEmpty = !field.value.trim();
-    const isEmail = field.type === "email";
-    const hasInvalidEmail = isEmail && field.value.trim() && !field.checkValidity();
-    field.classList.toggle("invalid", isEmpty || hasInvalidEmail);
-    return !(isEmpty || hasInvalidEmail);
+if (downloadForm && videoLinkInput && downloadButton && downloadStatus) {
+  const setDownloadMessage = (message, type = "") => {
+    downloadStatus.textContent = message;
+    downloadStatus.className = `download-status${type ? ` ${type}` : ""}`;
   };
 
-  requiredFields.forEach((field) => {
-    field.addEventListener("input", () => {
-      markFieldState(field);
-    });
+  videoLinkInput.addEventListener("input", () => {
+    videoLinkInput.classList.remove("invalid");
+
+    if (downloadStatus.classList.contains("error")) {
+      setDownloadMessage("");
+    }
   });
 
-  contactForm.addEventListener("submit", (event) => {
+  downloadForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const allValid = requiredFields.every((field) => markFieldState(field));
+    const linkValue = videoLinkInput.value.trim();
 
-    if (!allValid) {
-      const firstInvalid = requiredFields.find((field) => field.classList.contains("invalid")) || emailField;
-      formStatus.textContent = "Please complete the required fields with valid details before sending.";
-      formStatus.className = "form-status error";
-      firstInvalid.focus();
+    if (!linkValue) {
+      videoLinkInput.classList.add("invalid");
+      setDownloadMessage("Please paste a video link before continuing.", "error");
+      videoLinkInput.focus();
       return;
     }
 
-    const formData = new FormData(contactForm);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const subjectValue = String(formData.get("subject") || "").trim();
-    const message = String(formData.get("message") || "").trim();
-    const subject = encodeURIComponent(subjectValue || `Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        "",
-        "Message:",
-        message
-      ].join("\n")
-    );
+    downloadButton.disabled = true;
+    downloadButton.textContent = "Fetching video…";
+    setDownloadMessage("Fetching video…", "success");
 
-    const button = contactForm.querySelector('button[type="submit"]');
-    button.textContent = "Opening Mail App...";
-    button.style.background = "#159f73";
-    button.disabled = true;
-    formStatus.textContent = "Your message is ready. Sending will open in your email app.";
-    formStatus.className = "form-status success";
-
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-
-    setTimeout(() => {
-      button.textContent = "Send Message";
-      button.style.background = "";
-      button.disabled = false;
-      contactForm.reset();
-      requiredFields.forEach((field) => field.classList.remove("invalid"));
-      formStatus.textContent = "";
-      formStatus.className = "form-status";
-    }, 3000);
+    // Preserve deployability on static hosting. Replace this timeout with your real API call when ready.
+    window.setTimeout(() => {
+      downloadButton.disabled = false;
+      downloadButton.textContent = "Fetch Video";
+      setDownloadMessage("Video details are ready. Connect your processing endpoint here to continue the download flow.", "success");
+    }, 1600);
   });
 }
 
-/* ===========================
-   ACTIVE NAV LINK
-=========================== */
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("[data-section-link]");
 
@@ -261,14 +178,11 @@ const activeObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.48, rootMargin: "-10% 0px -45% 0px" }
+  { threshold: 0.45, rootMargin: "-10% 0px -48% 0px" }
 );
 
 sections.forEach((section) => activeObserver.observe(section));
 
-/* ===========================
-   FOOTER YEAR
-=========================== */
 const currentYear = document.getElementById("currentYear");
 
 if (currentYear) {
