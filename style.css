@@ -344,6 +344,7 @@ body:not(.light-mode) .theme-toggle,
 body:not(.light-mode) .hamburger {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-strong);
 }
 
 body:not(.light-mode) .btn-nav:hover,
@@ -374,6 +375,10 @@ body:not(.light-mode) #navbar {
 
 body:not(.light-mode) #navbar.scrolled {
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.34);
+}
+
+body:not(.light-mode) .nav-logo {
+  color: var(--text-strong);
 }
 
 .nav-inner {
@@ -417,6 +422,16 @@ body:not(.light-mode) #navbar.scrolled {
 .nav-links a.active {
   color: var(--text-strong);
   background: rgba(255, 255, 255, 0.7);
+}
+
+body:not(.light-mode) .nav-links a {
+  color: rgba(230, 236, 255, 0.72);
+}
+
+body:not(.light-mode) .nav-links a:hover,
+body:not(.light-mode) .nav-links a.active {
+  color: var(--text-strong);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .nav-links a.active::after {
@@ -850,8 +865,7 @@ body:not(.light-mode) .footer-inner {
 }
 
 .skill-pct {
-  color: var(--muted);
-  font-size: 0.84rem;
+  display: none;
 }
 
 .skill-bar {
